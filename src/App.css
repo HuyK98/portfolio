@@ -1,0 +1,16 @@
+/* Footer đáy */
+.layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* căn footer xuống cuối */
+.content {
+  flex: 1;
+}
+
+.lead {
+  max-width: 680px;
+  line-height: 1.55;
+}
