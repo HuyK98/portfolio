@@ -1,7 +1,14 @@
 .site-footer {
-  border-top: 1px solid #1f2937;
-  color: #9ca3af;
+  border-top: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  color: #4b5563;
   font-size: 12px;
   text-align: center;
   padding: 16px 0;
+}
+
+body.dark .site-footer {
+  border-top-color: #1f2937;
+  background: #0f172a;
+  color: #b3b3b3;
 }
