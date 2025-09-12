@@ -2,6 +2,9 @@ import "./App.css";
 import "./styles/base.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
+import Experience from "./components/Experience/Experience";
 
 export default function App() {
   return (
@@ -13,26 +16,22 @@ export default function App() {
           <p className="muted">Hi! I&apos;m</p>
           <h2>Truong Dinh Huy</h2>
           <p className="lead">
-            Fresher web developer focusing on React & Node.
-            This portfolio is built step-by-step as I learn.
+            Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày.
           </p>
         </section>
 
-        <section id="about" className="section">
-          <h3>About</h3>
-          <p className="muted">
-            (Day 2 sẽ render danh sách kỹ năng bằng .map; Day 3–4 thêm avatar, layout đẹp hơn.)
-          </p>
-        </section>
-
-        <section id="projects" className="section">
-          <h3>Projects</h3>
-          <p className="muted">Coming soon… (sau sẽ fetch từ API backend).</p>
-        </section>
+        <About />
+        <Projects />
+        <Experience />
 
         <section id="contact" className="section">
           <h3>Contact</h3>
-          <p className="muted">Sẽ có form gửi Gmail qua Node/Nodemailer ở tuần 3.</p>
+          <ul>
+            <li><a href="mailto:huytruongdinh61@gmail.com">huytruongdinh61@gmail.com</a></li>
+            <li><a href="tel:+84942090803">(+84) 942 090 803</a></li>
+            <li><a href="https://www.linkedin.com/in/truong-dinh-huy-5b3b251b0/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/HuyK98" target="_blank" rel="noreferrer">GitHub</a></li>
+          </ul>
         </section>
       </main>
 
