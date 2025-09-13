@@ -64,3 +64,22 @@
 - Học 'useEffect' + 'localStorage' → lưu theme sau reload.
 - Responsive cơ bản: media query, breakpoints, áp dụng cho portfolio.
 
+## Day 4 – [13/09/2025]
+
+### Topics learned
+- useEffect: 3 trường hợp dependency (mỗi render, mount 1 lần, theo dõi state), cleanup.
+- localStorage: set/get, JSON.stringify/parse, đồng bộ state ↔ localStorage.
+
+### Tasks done
+- Mini task: Notes app (add/remove + save localStorage).
+- Portfolio update:
+  - Thêm persist theme (lưu dark/light sau reload).
+
+### Still confused
+- Responsive design: chưa thực hành, cần nghiên cứu media query, breakpoints.
+- localStorage: đã dùng cho notes + theme, nhưng cần luyện thêm nhiều case để chắc hơn.
+
+### Next plan (Day 5)
+- Controlled input + Contact Form UI (bắt đầu với React form).
+- Responsive cơ bản: media query, breakpoints → áp dụng thử cho portfolio.
+
