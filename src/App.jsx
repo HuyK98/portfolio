@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Experience from "./components/Experience/Experience";
+import Contact from "./components/Contact/Contact"
 
 export default function App() {
   return (
@@ -23,16 +24,8 @@ export default function App() {
         <About />
         <Projects />
         <Experience />
+        <Contact />
 
-        <section id="contact" className="section">
-          <h3>Contact</h3>
-          <ul>
-            <li><a href="mailto:huytruongdinh61@gmail.com">huytruongdinh61@gmail.com</a></li>
-            <li><a href="tel:+84942090803">(+84) 942 090 803</a></li>
-            <li><a href="https://www.linkedin.com/in/truong-dinh-huy-5b3b251b0/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com/HuyK98" target="_blank" rel="noreferrer">GitHub</a></li>
-          </ul>
-        </section>
       </main>
 
       <Footer />

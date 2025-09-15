@@ -83,3 +83,29 @@
 - Controlled input + Contact Form UI (bắt đầu với React form).
 - Responsive cơ bản: media query, breakpoints → áp dụng thử cho portfolio.
 
+## Day 5 – [15/09/2025]
+
+### Topics learned
+- useRef (DOM ref, logic ref, lưu giá trị qua render, không trigger re-render).
+- Controlled input (state quản lý value, onChange cập nhật state).
+- Kết hợp useRef + useState trong form.
+- CSS Grid/Flex cơ bản (auto-fit, minmax).
+- Tối ưu trải nghiệm bằng Back-to-Top button (scrollTo + smooth).
+
+### Tasks done
+- Mini task luyện useRef (counter, focus input).
+- Mini task controlled input (name/email + preview).
+- Portfolio update:
+  - Split Contact section thành 2 cột (info + form).
+  - Contact form controlled (name, email, message, clear).
+  - Back-to-Top button ở footer.
+
+### Still confused
+- Validate cơ bản (focus vào field sai) cần luyện thêm.
+- Autosave form bằng localStorage mới hiểu ý tưởng, chưa thực hành nhiều.
+
+### Next plan (Day 6)
+- Học: Context API (chia sẻ state toàn app).
+- Task: theme toggle lưu state bằng Context thay vì prop drilling.
+- Portfolio: áp dụng Context để quản lý dark/light theme toàn bộ app.
+- Bonus: bắt đầu nghiên cứu Responsive (media query, auto-fit) cho toàn layout.

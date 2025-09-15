@@ -12,3 +12,17 @@ body.dark .site-footer {
   background: #0f172a;
   color: #b3b3b3;
 }
+
+/* button back lên đầu trang */
+.backtotop-inline {
+  margin-left: 16px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f8fafc;
+  cursor: pointer;
+}
+.backtotop-inline:hover {
+  background: #e2e8f0;
+}
+

@@ -1,0 +1,139 @@
+/* Layout cột(dùng grid) */
+.contact-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    align-items: start;
+}
+
+
+/* layout nhẹ, dark theme */
+.contact-info,
+.contact-form {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+body.dark .contact-info,
+body.dark .contact-form {
+    background: #0b1220;
+    border-color: #1f2a44;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* Info List */
+.contact-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.contact-list li {
+    margin: 8px 0;
+}
+
+/* Form Contact */
+.contact-form {
+    display: grid;
+    gap: 14px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.field label {
+    font-weight: 600;
+    opacity: .9;
+}
+
+/* Input */
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background: #f8fafc;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    opacity: .6;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, .25);
+    background: #fff;
+}
+
+/* Dark mode cho input */
+body.dark .field input,
+body.dark .field textarea {
+    background: #0f172a;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark .field input:focus,
+body.dark .field textarea:focus {
+    border-color: #7dd3fc;
+    box-shadow: 0 0 0 3px rgba(125, 211, 252, .25);
+    background: #0b1020;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    cursor: pointer;
+    transition: transform .08s ease, background .15s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    background: #f3f4f6;
+}
+
+.btn.primary {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.btn.primary:hover {
+    background: #1d4ed8;
+}
+
+body.dark .btn {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark .btn:hover {
+    background: #111a2e;
+}
+
+body.dark .btn.primary {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+body.dark .btn.primary:hover {
+    background: #1b46c3;
+}
