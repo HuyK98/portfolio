@@ -109,3 +109,28 @@
 - Task: theme toggle lưu state bằng Context thay vì prop drilling.
 - Portfolio: áp dụng Context để quản lý dark/light theme toàn bộ app.
 - Bonus: bắt đầu nghiên cứu Responsive (media query, auto-fit) cho toàn layout.
+
+## Day 6 – [16/09/2025]
+
+### Topics learned
+- Context API (createContext, Provider, useContext).
+- Provider bọc toàn App để chia sẻ state.
+- Custom hook (useTheme) để lấy dữ liệu context gọn gàng.
+
+### Tasks done
+- Mini task UserContext (Navbar, Main, Footer chia sẻ user.name).
+- Portfolio update:
+  - Refactor dark/light theme toggle sang ThemeContext.
+  - Lưu trạng thái theme vào localStorage để reload không mất.
+  - Bọc App trong ThemeProvider, dùng useTheme() trong Header.
+
+### Still confused
+- Khi nào nên chọn Context, khi nào chỉ cần props? (cần luyện thêm ví dụ).
+- Hiểu cơ bản về context flow, nhưng cần làm thêm vài mini task để quen tay.
+
+### Next plan (Day 7)
+- Học: useReducer (quản lý state phức tạp hơn).
+- Task: Todo app nhỏ với useReducer.
+- Portfolio: chưa có update lớn, chủ yếu học kiến thức nền.
+- Ôn lại Responsive design để sớm áp dụng cho portfolio.
+

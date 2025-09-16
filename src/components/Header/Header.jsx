@@ -1,31 +1,8 @@
-import { useState, useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
 import "./Header.css";
 
 export default function Header() {
-  const [dark, setDark] = useState(false);
-
-  //khi mount -> đọc  theme đã save
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      setDark(true);
-      document.body.classList.add("dark");
-    }
-  }, [])
-
-  function toggleTheme() {
-    setDark((d) => {
-      const next = !d;
-      if (next) {
-        document.body.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.body.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-      }
-      return next;
-    });
-  }
+  const { dark, toggleTheme } = useTheme();
 
   return (
     <header className="site-header">

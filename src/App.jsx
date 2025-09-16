@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./context/ThemeContext";
 import "./App.css";
 import "./styles/base.css";
 import Header from "./components/Header/Header";
@@ -9,26 +10,28 @@ import Contact from "./components/Contact/Contact"
 
 export default function App() {
   return (
-    <div className="layout">
-      <Header />
+    <ThemeProvider>
+      <div className="layout">
+        <Header />
 
-      <main className="container content">
-        <section id="hero" className="section">
-          <p className="muted">Hi! I&apos;m</p>
-          <h2>Truong Dinh Huy</h2>
-          <p className="lead">
-            Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày.
-          </p>
-        </section>
+        <main className="container content">
+          <section id="hero" className="section">
+            <p className="muted">Hi! I&apos;m</p>
+            <h2>Truong Dinh Huy</h2>
+            <p className="lead">
+              Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày.
+            </p>
+          </section>
 
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
+          <About />
+          <Projects />
+          <Experience />
+          <Contact />
 
-      </main>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
