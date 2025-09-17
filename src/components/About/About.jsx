@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import skills from "../../data/skills";
 import "./About.css";
 
@@ -18,20 +19,28 @@ export default function About() {
                 </button>
             </div>
 
-            {show && (
-                <div className="skill-groups">
-                    {skills.map(g => (
-                        <article key={g.id} className="skill-card">
-                            <h4>{g.title}</h4>
-                            <ul>
-                                {g.items.map(item => (
-                                    <li key={item}>{item}</li>
-                                ))}
-                            </ul>
-                        </article>
-                    ))}
-                </div>
-            )}
+            <AnimatePresence>
+                {show && (
+                    <motion.div
+                        className="skill-groups"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.25 }}
+                    >
+                        {skills.map(g => (
+                            <article key={g.id} className="skill-card">
+                                <h4>{g.title}</h4>
+                                <ul>
+                                    {g.items.map(item => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </article>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

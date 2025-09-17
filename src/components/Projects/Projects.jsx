@@ -1,4 +1,5 @@
 import projects from "../../data/projects";
+import { motion } from "framer-motion";
 import "./Projects.css";
 
 export default function Projects() {
@@ -9,7 +10,12 @@ export default function Projects() {
       {projects.length ? (
         <div className="cards">
           {projects.map(p => (
-            <article key={p.id} className="card">
+            <motion.article
+              key={p.id}
+              className="card"
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 220, damping: 18 }}
+            >
               <header className="card-head">
                 <h4>{p.name}</h4>
                 <small>{p.period}</small>
@@ -26,7 +32,7 @@ export default function Projects() {
                 <a href={p.repo} target="_blank" rel="noreferrer">GitHub</a>
                 {p.demo && <a href={p.demo} target="_blank" rel="noreferrer">Demo</a>}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       ) : (

@@ -134,3 +134,22 @@
 - Portfolio: chưa có update lớn, chủ yếu học kiến thức nền.
 - Ôn lại Responsive design để sớm áp dụng cho portfolio.
 
+## Day 6 – [17/09/2025]
+
+### Topics learned
+- Ôn tập kiến thức từ day 1 -> 6.
+- Tìm hiểu Framer motion.
+
+### Tasks done
+- Mini task(Counter, Controlled Input + localStorage + focus + count render components).
+-Update minimal animation(App.jsx, About.jsx, Projects.jsx).
+
+### Still confused
+- Chưa chắc filter,map(đã tự làm mini ex và ôn lại cho chắc).
+- Framer motion cơ bản chưa nâng cao.
+
+### Next plan (Day 8)
+- Node.js intro, Express Hello World.
+- Task: write api/health.
+- Portfolio: FE gọi api/health -> show "api connected".
+

@@ -1,6 +1,7 @@
 import { ThemeProvider } from "./context/ThemeContext";
 import "./App.css";
 import "./styles/base.css";
+import { motion } from "framer-motion";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
@@ -16,12 +17,33 @@ export default function App() {
 
         <main className="container content">
           <section id="hero" className="section">
-            <p className="muted">Hi! I&apos;m</p>
-            <h2>Truong Dinh Huy</h2>
-            <p className="lead">
+            <motion.p
+              className="muted"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Hi! I&apos;m
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Truong Dinh Huy
+            </motion.h2>
+
+            <motion.p
+              className="lead"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
               Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày.
-            </p>
+            </motion.p>
           </section>
+
 
           <About />
           <Projects />
