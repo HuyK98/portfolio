@@ -134,7 +134,7 @@
 - Portfolio: chưa có update lớn, chủ yếu học kiến thức nền.
 - Ôn lại Responsive design để sớm áp dụng cho portfolio.
 
-## Day 6 – [17/09/2025]
+## Day 7 – [17/09/2025]
 
 ### Topics learned
 - Ôn tập kiến thức từ day 1 -> 6.
@@ -152,4 +152,22 @@
 - Node.js intro, Express Hello World.
 - Task: write api/health.
 - Portfolio: FE gọi api/health -> show "api connected".
+
+## Day 8 – [18/09/2025]
+
+### Topics learned
+- Backend: Nodejs cơ bản.
+- Học và nắm cách viết express.js(so sánh sự tiện lợi khi dùng express so với node thuần).
+- Học cách dùng proxy vite.
+
+### Tasks done
+- Mini task(fetch /api/health) -> api connected.
+- Cấu hình server để test connect và dùng useEffect để fetch dữ liệu từ /api/projects render ra UI.
+
+### Still confused
+
+### Next plan (Day 8)
+- Express route(nắm vững hơn).
+- Middleware.
+- Portfolio: fetch api cho experience và skill.
 

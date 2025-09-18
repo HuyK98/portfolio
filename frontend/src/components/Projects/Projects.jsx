@@ -1,13 +1,29 @@
-import projects from "../../data/projects";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "./Projects.css";
 
 export default function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [state, setState] = useState("loading"); //loading | ok | error
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then(r => r.json())
+      .then(data => { 
+        setProjects(data || []); 
+        setState("ok"); 
+      }) //nếu null hoặc undefined trả về mảng rỗng, đúng thì set state = "ok"
+      .catch(() => setState("error"));
+  }, []);
+
   return (
     <section id="projects" className="section projects">
       <h3>Projects</h3>
 
-      {projects.length ? (
+      {state === "loading" && <p className="muted">Loading projects...</p>}
+      {state === "error" && <p className="muted">Failed to load projects.</p>}
+
+      {state === "ok" && (projects.length) ? (
         <div className="cards">
           {projects.map(p => (
             <motion.article

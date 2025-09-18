@@ -44,7 +44,6 @@ export default function App() {
             </motion.p>
           </section>
 
-
           <About />
           <Projects />
           <Experience />

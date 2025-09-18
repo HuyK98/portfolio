@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1,
+        "name": "Movie Web",
+        "role": "Full Stack",
+        "period": "03/2025 → 05/2025",
+        "stack": [
+            "React (Vite)",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ],
+        "repo": "https://github.com/HuyK98/MovieWeb",
+        "demo": "https://movie-web-ace9f.web.app/",
+        "highlights": [
+            "Browse/search/filter",
+            "view details",
+            "Google OAuth2, MoMo Payment",
+            "Admin dashboard + realtime notification"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Clothes Web",
+        "role": "Full Stack",
+        "period": "10/2024 → 12/2024",
+        "stack": [
+            "HTML",
+            "CSS",
+            "PHP",
+            "MySQL"
+        ],
+        "repo": "https://github.com/HuyK98/ClothesWeb",
+        "demo": "#",
+        "highlights": [
+            "Browse/Filter/Cart/Checkout",
+            "Google OAuth2, MoMo Payment",
+            "Admin: RBAC, manage products/orders/users"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Perfume Web",
+        "role": "Full Stack",
+        "period": "04/2024 → 06/2024",
+        "stack": [
+            "HTML",
+            "CSS",
+            "Java(Spring Boot)",
+            "MySQL",
+            "Docker"
+        ],
+        "repo": "https://github.com/TranTienProVip123/webperfumestore",
+        "demo": "#",
+        "highlights": [
+            "Browse/Detail/Cart/Checkout",
+            "Google OAuth2",
+            "Admin: categories/orders/users, decentralization"
+        ]
+    }
+]
