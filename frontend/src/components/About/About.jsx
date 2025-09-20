@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import skills from "../../data/skills";
 import "./About.css";
 
 export default function About() {
     const [show, setShow] = useState(true);
+    const [skills, setSkills] = useState([]);
+    const [state, setState] = useState("loading");
+
+    useEffect(() => {
+        fetch("/api/v1/skills")
+            .then(r => r.json())
+            .then(raw => {
+                setSkills(raw.data || []);
+                setState("ok");
+            })
+            .catch(() => setState("error"))
+    }, [])
 
     return (
         <section id="about" className="section about">
@@ -20,7 +31,10 @@ export default function About() {
             </div>
 
             <AnimatePresence>
-                {show && (
+                {state === "loading" && <p className="muted">Loading skills...</p>}
+                {state === "error" && <p className="muted">Failed to load skills...</p>}
+
+                {state === "ok" && show && (
                     <motion.div
                         className="skill-groups"
                         initial={{ opacity: 0, y: 10 }}

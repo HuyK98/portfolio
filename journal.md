@@ -166,8 +166,24 @@
 
 ### Still confused
 
-### Next plan (Day 8)
+### Next plan (Day 9)
 - Express route(nắm vững hơn).
 - Middleware.
 - Portfolio: fetch api cho experience và skill.
 
+## Day 9 – [20/09/2025]
+
+### Topics learned
+- Express Route & Middleware: logger, auth, error handler.
+
+### Tasks done
+- Mini task: viết middleware auth cơ bản, logger và error handler.
+- Tối ưu lại server.js (dùng async/await để tiện sau này fetch api từ DB, thêm error handler, Helper đọc file chung, dùng /api/v1 để dễ nắm vesion và làm sau này).
+
+### Still confused
+- Chỉ mới học và nắm mức nền chưa đi sâu.
+
+### Next plan (Day 10)
+- CRUD API.
+- task: API POST /api/contact -> log ra server.
+- Portfolio: form Contact gửi dữ liệu đến backend (chưa Gmail).

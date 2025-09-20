@@ -7,10 +7,10 @@ export default function Projects() {
   const [state, setState] = useState("loading"); //loading | ok | error
 
   useEffect(() => {
-    fetch("/api/projects")
+    fetch("/api/v1/projects")
       .then(r => r.json())
-      .then(data => { 
-        setProjects(data || []); 
+      .then(raw => { 
+        setProjects(raw.data || []); 
         setState("ok"); 
       }) //nếu null hoặc undefined trả về mảng rỗng, đúng thì set state = "ok"
       .catch(() => setState("error"));
