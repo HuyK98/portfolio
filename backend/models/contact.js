@@ -1,0 +1,11 @@
+const mongoose = require("mongoose");
+
+const contactMessage = new mongoose.Schema({
+    name: { type: String, required: true, trim: true },
+    email: { type: String, required: true, lowercase: true, trim: true },
+    message: { type: String, required: true, trim: true },
+    createdAt: { type: Date, default: Date.now }
+});
+
+//export model để file khác import
+module.exports = mongoose.model("ContactMessage", contactMessage);

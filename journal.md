@@ -187,3 +187,19 @@
 - CRUD API.
 - task: API POST /api/contact -> log ra server.
 - Portfolio: form Contact gửi dữ liệu đến backend (chưa Gmail).
+
+## Day 10,11 – [22/09/2025]
+
+### Topics learned
+- CRUD API, Connect & Fetch Data from DB.
+
+### Tasks done
+- Mini task: viết crud api đơn giản.
+- Connect and create new collection in MongoDB(Fetch api render UI).
+
+### Still confused
+- Chưa nắm rõ về DB.
+
+### Next plan (Day 12)
+- Mongoose Schema
+- Projects,Experience,Skills section fetch từ MongoDB.

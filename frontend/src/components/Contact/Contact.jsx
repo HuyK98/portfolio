@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import "./Contact.css"
 
 export default function Contact() {
-    const [form, setForm] = useState(() =>{
+    const [form, setForm] = useState(() => {
         const saved = localStorage.getItem("contactForm")
-        return (saved) ? JSON.parse(saved) : { name: "", email:"", message:""}
+        return (saved) ? JSON.parse(saved) : { name: "", email: "", message: "" }
     });
 
     //lưu form mỗi khi có thay đổi
@@ -17,9 +17,25 @@ export default function Contact() {
         setForm(f => ({ ...f, [name]: value }));
     }
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
         e.preventDefault();
-        alert("Information send:\n" + JSON.stringify(form, null, 2));
+        try {
+            const res = await fetch("/api/v1/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form)
+            });
+
+            const data = await res.json();
+            if (data.ok) {
+                alert("Message sent!");
+                onClear();
+            } else {
+                alert("Failed!" + ("Unknown Error"));
+            }
+        } catch (err) {
+            alert("Error: " + err.message);
+        }
     }
 
     function onClear() {
