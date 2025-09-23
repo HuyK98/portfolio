@@ -27,7 +27,7 @@ export default function Projects() {
         <div className="cards">
           {projects.map(p => (
             <motion.article
-              key={p.id}
+              key={p._id}
               className="card"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 220, damping: 18 }}

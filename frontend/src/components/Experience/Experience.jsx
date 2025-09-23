@@ -23,7 +23,7 @@ export default function Experience() {
                 {state === "error" && <p className="muted">Failed to load...</p>}
 
                 {state === "ok" && exp.map(e => (
-                    <li key={e.id} className="timeline-item">
+                    <li key={e._id} className="timeline-item">
                         <div className="dot" />
                         <div className="ex-content">
                             <h4>{e.company} - {e.title}</h4>

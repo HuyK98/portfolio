@@ -137,3 +137,21 @@ body.dark .btn.primary {
 body.dark .btn.primary:hover {
     background: #1b46c3;
 }
+
+/* field text */
+.field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* hint */
+.hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+body.dark .hint {
+    color: #94a3b8;
+}

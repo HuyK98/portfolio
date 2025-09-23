@@ -43,7 +43,7 @@ export default function About() {
                         transition={{ duration: 0.25 }}
                     >
                         {skills.map(g => (
-                            <article key={g.id} className="skill-card">
+                            <article key={g._id || g.title} className="skill-card">
                                 <h4>{g.title}</h4>
                                 <ul>
                                     {g.items.map(item => (

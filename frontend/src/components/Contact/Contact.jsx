@@ -6,6 +6,7 @@ export default function Contact() {
         const saved = localStorage.getItem("contactForm")
         return (saved) ? JSON.parse(saved) : { name: "", email: "", message: "" }
     });
+    const [submitting, setSubmitting] = useState(false); //mac dinh nut send la false
 
     //lưu form mỗi khi có thay đổi
     useEffect(() => {
@@ -17,9 +18,29 @@ export default function Contact() {
         setForm(f => ({ ...f, [name]: value }));
     }
 
+    function validate() {
+        const { name, email, message } = form;
+        if (!name.trim() || !email.trim() || !message.trim()) {
+            alert("Please fill in all fields.");
+            return false;
+        }
+        const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!okEmail) {
+            alert("Please enter a valid email.");
+            return false;
+        }
+        if (message.trim().length < 10) {
+            alert("Message should be at least 10 characters.");
+            return false;
+        }
+        return true;
+    }
+
     async function onSubmit(e) {
         e.preventDefault();
+        if (!validate()) return;
         try {
+            setSubmitting(true);
             const res = await fetch("/api/v1/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -28,13 +49,15 @@ export default function Contact() {
 
             const data = await res.json();
             if (data.ok) {
-                alert("Message sent!");
+                alert("Message sent! Thanks for reaching out.");
                 onClear();
             } else {
-                alert("Failed!" + ("Unknown Error"));
+                alert("Failed to send. Please try again.");
             }
         } catch (err) {
             alert("Error: " + err.message);
+        } finally {
+            setSubmitting(false);
         }
     }
 
@@ -64,33 +87,44 @@ export default function Contact() {
                             placeholder='Your name...'
                             value={form.name}
                             onChange={onChange}
+                            autoComplete='name'
+                            required
                         />
                     </div>
 
                     <div className='field'>
                         <label>Email</label>
                         <input
+                            type='email'
                             name='email'
                             placeholder='Your gmail...'
                             value={form.email}
                             onChange={onChange}
+                            autoComplete='email'
+                            required
                         />
                     </div>
 
                     <div className='field'>
                         <label>Message</label>
-                        <input
+                        <textarea
                             name='message'
-                            rows={4}
+                            rows={6}
                             placeholder='Your message...'
                             value={form.message}
                             onChange={onChange}
+                            required
                         />
+                        <small className="hint">
+                            Tell me briefly what you need help with (min. 10 characters).
+                        </small>
                     </div>
 
-                    <div className='row'>
-                        <button type='submit' className='btn primary'>Send</button>
-                        <button type='button' className='btn' onClick={onClear}>Clear</button>
+                    <div className='actions'>
+                        <button type='submit' className='btn primary' disabled={submitting}>
+                            {submitting ? "Sending..." : "Send"}
+                        </button>
+                        <button type='button' className='btn' onClick={onClear} disabled={submitting}>Clear</button>
                     </div>
                 </form>
             </div>

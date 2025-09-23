@@ -14,6 +14,9 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch(err => console.error("MongoDB connection error: ", err));
 
 const ContactMessage = require("./models/contact");
+const Project = require("./models/project");
+const Skill = require("./models/skillGroup");
+const Exp = require("./models/experience");
 
 //Middleware cơ bản
 app.use(cors()); // fe gọi api từ proxy
@@ -33,7 +36,7 @@ async function readJSON(filename) {
 // api trả ds project
 app.get("/api/v1/projects", async (req, res, next) => {
     try {
-        const data = await readJSON("projects.json");
+        const data = await Project.find({}).sort("-createdAt").lean();
         res.json({ ok: true, data });
     } catch (err) {
         next(err);
@@ -43,7 +46,7 @@ app.get("/api/v1/projects", async (req, res, next) => {
 // api trả ds skill
 app.get("/api/v1/skills", async (req, res, next) => {
     try {
-        const data = await readJSON("skills.json");
+        const data = await Skill.find({}).sort("title").lean();
         res.json({ ok: true, data })
     } catch (err) {
         next(err);
@@ -53,7 +56,7 @@ app.get("/api/v1/skills", async (req, res, next) => {
 // api trả exp
 app.get("/api/v1/exp", async (req, res, next) => {
     try {
-        const data = await readJSON("experience.json");
+        const data = await Exp.find({}).sort("-createdAt").lean();
         res.json({ ok: true, data });
     } catch (err) {
         next(err);
@@ -66,7 +69,7 @@ app.post("/api/v1/contact", async (req, res, next) => {
         const { name, email, message } = req.body; //nhận dữ liệu json từ fe bằng req.body nhờ express.json() đã khai báo ở trên
         // validate dữ liệu nhập vào trước khi lưu
         if (!name || !email || !message) {
-            return res.status(400).json({ ok: false, error: "Missing name|email|message" });
+            return res.status(400).json({ ok: false, error: "Missing name|email|message", fields: { name: !name, email: !email, message: !message } });
         }
 
         //ghi db(tạo doc theo schema)
@@ -88,5 +91,5 @@ app.use((err, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server is running at http"//localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
