@@ -216,3 +216,17 @@
 
 ### Next plan (Day 14)
 - Ôn tập(Review Week 2).
+
+## Day 14 – [24/09/2025]
+
+### Topics learned
+- Review Week 2.
+
+### Tasks done
+- Nắm luồng Seed dữ liệu từ file cứng .json sang DB và viết api để query dữ liệu đó và render ra UI(exp,skills,projects).
+
+### Still confused
+
+### Next plan (Day 15)
+- React Router.
+- portfolio: implement navigation(Project).
