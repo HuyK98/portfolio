@@ -24,6 +24,26 @@ export default function About() {
                 Fresher Web Developer tập trung React & Node. Dưới đây là nhóm kỹ năng mình đang luyện:
             </p>
 
+            <div className="about-intro">
+                <article className="about-card">
+                    <h4>Career Goal</h4>
+                    <p className="muted">
+                        Fresher Web Developer tập trung React & Node. Mục tiêu 1–3 năm:
+                        trở thành full-stack engineer, nâng kỹ năng backend và DevOps cơ bản.
+                    </p>
+                </article>
+
+                <article className="about-card">
+                    <h4>Education</h4>
+                    <ul className="edu">
+                        <li>
+                            <strong>Van Lang University</strong> - B.Sc. Information Technology
+                            <div className="muted">GPA ~3.2/4.0 · 2021–2025</div>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
             <div className="about-actions">
                 <button onClick={() => setShow(s => !s)}>
                     {show ? "Ẩn danh sách" : "Hiện danh sách"}
@@ -47,7 +67,7 @@ export default function About() {
                                 <h4>{g.title}</h4>
                                 <ul>
                                     {g.items.map(item => (
-                                        <li key={item}>{item}</li>
+                                        <li key={`${g._id || g.title}-${item}`}>{item}</li>
                                     ))}
                                 </ul>
                             </article>

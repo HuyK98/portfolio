@@ -1,58 +1,69 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import "./Projects.css";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
-  const [state, setState] = useState("loading"); //loading | ok | error
+  const [state, setState] = useState("loading"); // loading | ok | error
 
   useEffect(() => {
     fetch("/api/v1/projects")
-      .then(r => r.json())
-      .then(raw => { 
-        setProjects(raw.data || []); 
-        setState("ok"); 
-      }) //nếu null hoặc undefined trả về mảng rỗng, đúng thì set state = "ok"
+      .then((r) => r.json())
+      .then((raw) => {
+        setProjects((raw && raw.data) || []);
+        setState("ok");
+      })
       .catch(() => setState("error"));
   }, []);
 
   return (
-    <section id="projects" className="section projects">
+    <section id="projects" className="section">
       <h3>Projects</h3>
+      <p className="muted">Một vài dự án tiêu biểu gần đây.</p>
 
-      {state === "loading" && <p className="muted">Loading projects...</p>}
-      {state === "error" && <p className="muted">Failed to load projects.</p>}
-
-      {state === "ok" && (projects.length) ? (
+      {state === "loading" && (
         <div className="cards">
-          {projects.map(p => (
-            <motion.article
-              key={p._id}
-              className="card"
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 220, damping: 18 }}
-            >
-              <header className="card-head">
-                <h4>{p.name}</h4>
-                <small>{p.period}</small>
+          {[1, 2].map((i) => <div className="card skeleton" key={i} />)}
+        </div>
+      )}
+
+      {state === "error" && <p className="err">Không tải được dữ liệu.</p>}
+
+      {state === "ok" && (
+        <div className="cards">
+          {projects.map((p) => (
+            <article className="card" key={p._id}>
+              <header className="card-hd">
+                <h4 className="card-title">{p.name}</h4>
+                <span className="period">{p.period}</span>
               </header>
 
-              <p className="muted">{p.role}</p>
-              <p className="stack">{p.stack.join(" · ")}</p>
+              <div className="stack">
+                {(p.stack || []).slice(0, 6).map((s) => (
+                  <span className="chip" key={`${p._id}-${s}`}>{s}</span>
+                ))}
+              </div>
 
               <ul className="highlights">
-                {p.highlights.map(h => <li key={h}>{h}</li>)}
+                {(p.highlights || []).slice(0, 3).map((h, i) => (
+                  <li key={`${p._id}-h${i}`}>{h}</li>
+                ))}
               </ul>
 
-              <div className="links">
-                <a href={p.repo} target="_blank" rel="noreferrer">GitHub</a>
-                {p.demo && <a href={p.demo} target="_blank" rel="noreferrer">Demo</a>}
-              </div>
-            </motion.article>
+              <footer className="actions">
+                {p.demo && (
+                  <a className="btn primary" href={p.demo} target="_blank" rel="noreferrer">
+                    Live
+                  </a>
+                )}
+                {p.repo && (
+                  <a className="btn ghost" href={p.repo} target="_blank" rel="noreferrer">
+                    Repo
+                  </a>
+                )}
+              </footer>
+            </article>
           ))}
         </div>
-      ) : (
-        <p className="muted">Chưa có project nào, sẽ cập nhật sớm!</p>
       )}
     </section>
   );

@@ -29,3 +29,7 @@ body.dark {
 }
 body.dark a { color: #93c5fd; }
 body.dark .muted { color: #b3b3b3; }
+
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 80px; }
+

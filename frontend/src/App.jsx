@@ -55,8 +55,8 @@ export default function App() {
             </div>
           </section>
 
-          <About />
           <Projects />
+          <About />
           <Experience />
           <Contact />
 

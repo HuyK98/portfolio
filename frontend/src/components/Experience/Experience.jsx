@@ -29,7 +29,7 @@ export default function Experience() {
                             <h4>{e.company} - {e.title}</h4>
                             <small className="muted">{e.time}</small>
                             <ul>
-                                {e.points.map(pt => <li key={pt}>{pt}</li>)}
+                                {e.points.map((pt, i) => <li key={`${e._id}-${i}`}>{pt}</li>)}
                             </ul>
                         </div>
                     </li>
