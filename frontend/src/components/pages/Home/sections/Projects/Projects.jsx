@@ -16,7 +16,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section projects">
       <h3>Projects</h3>
       <p className="muted">Một vài dự án tiêu biểu gần đây.</p>
 

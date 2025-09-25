@@ -1,0 +1,110 @@
+.cards {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.card {
+    position: relative;
+    border: 1px solid var(--line, rgba(255, 255, 255, .1));
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--surface-1, rgba(255, 255, 255, .03));
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    border-color: var(--accent, #4f46e5);
+}
+
+.card-hd {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.period {
+    padding: 4px 8px;
+    border-radius: 20px;
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.chip {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.chip:hover {
+    background: var(--accent);
+    color: lightblue;
+}
+
+.highlights {
+    margin: 16px 0;
+    padding-left: 20px;
+    color: var(--text-secondary);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: lightblue;
+}
+
+.btn.primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn.ghost {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn.ghost:hover {
+    background: var(--accent);
+    color: lightblue;
+}
+
+body.dark .period {
+    color: white;
+}

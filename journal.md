@@ -230,3 +230,18 @@
 ### Next plan (Day 15)
 - React Router.
 - portfolio: implement navigation(Project).
+
+## Day 15 – [25/09/2025]
+
+### Topics learned
+- React Router
+
+### Tasks done
+- Implement Navigation(About,Contact,Project).
+
+### Still confused
+- Chưa thành thục,chỉ nắm basic.
+
+### Next plan (Day 16)
+- Axios/fetch nâng cao(loading/error).
+- portfolio: Contact form -> loading + thông báo gửi thành công/thất bại.

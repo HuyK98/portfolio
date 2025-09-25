@@ -20,9 +20,6 @@ export default function About() {
     return (
         <section id="about" className="section about">
             <h3>About</h3>
-            <p className="muted">
-                Fresher Web Developer tập trung React & Node. Dưới đây là nhóm kỹ năng mình đang luyện:
-            </p>
 
             <div className="about-intro">
                 <article className="about-card">
@@ -43,6 +40,10 @@ export default function About() {
                     </ul>
                 </article>
             </div>
+
+            <p className="muted">
+                Fresher Web Developer tập trung React & Node. Dưới đây là nhóm kỹ năng tôi đã làm và đang luyện:
+            </p>
 
             <div className="about-actions">
                 <button onClick={() => setShow(s => !s)}>
