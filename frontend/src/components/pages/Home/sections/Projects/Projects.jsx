@@ -20,13 +20,8 @@ export default function Projects() {
       <h3>Projects</h3>
       <p className="muted">Một vài dự án tiêu biểu gần đây.</p>
 
-      {state === "loading" && (
-        <div className="cards">
-          {[1, 2].map((i) => <div className="card skeleton" key={i} />)}
-        </div>
-      )}
-
-      {state === "error" && <p className="err">Không tải được dữ liệu.</p>}
+      {state === "loading" && <p>Đang tải dữ liệu.</p>}
+      {state === "error" && <p>Không tải được dữ liệu.</p>}
 
       {state === "ok" && (
         <div className="cards">
@@ -38,13 +33,13 @@ export default function Projects() {
               </header>
 
               <div className="stack">
-                {(p.stack || []).slice(0, 6).map((s) => (
+                {(p.stack || []).slice(0, 6).map((s) => (  //show cao nhất 6 tech stack
                   <span className="chip" key={`${p._id}-${s}`}>{s}</span>
                 ))}
               </div>
 
               <ul className="highlights">
-                {(p.highlights || []).slice(0, 3).map((h, i) => (
+                {(p.highlights || []).slice(0, 3).map((h, i) => ( //show cao nhất 3 highlights
                   <li key={`${p._id}-h${i}`}>{h}</li>
                 ))}
               </ul>

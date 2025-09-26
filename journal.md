@@ -245,3 +245,19 @@
 ### Next plan (Day 16)
 - Axios/fetch nâng cao(loading/error).
 - portfolio: Contact form -> loading + thông báo gửi thành công/thất bại.
+
+## Day 16 – [26/09/2025]
+
+### Topics learned
+- Express Router.
+- Nodemailer.
+
+### Tasks done
+- Contact form -> send Gmail real.
+
+### Still confused
+- Chưa thành thục khi mới refactor folder backend.
+
+### Next plan (Day 17)
+- Tiếp tục refactor folder backend.
+- portfolio: check lại chức năng gửi mail(nodemailer).
