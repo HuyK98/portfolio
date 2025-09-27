@@ -275,5 +275,5 @@
 ### Still confused
 - Chưa thành thục responsive.
 
-### Next plan (Day 17)
+### Next plan (Day 18)
 - Tiếp tục responsive các section còn lại.
