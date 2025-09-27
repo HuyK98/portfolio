@@ -261,3 +261,19 @@
 ### Next plan (Day 17)
 - Tiếp tục refactor folder backend.
 - portfolio: check lại chức năng gửi mail(nodemailer).
+
+## Day 17 – [27/09/2025]
+
+### Topics learned
+- Responsive.
+
+### Tasks done
+- Finished Refactor Backend Folder(exp,contact).
+- validate & rate limitting send gmail.
+- Responsive hero section(mobile,desktop & tablet).
+
+### Still confused
+- Chưa thành thục responsive.
+
+### Next plan (Day 17)
+- Tiếp tục responsive các section còn lại.

@@ -1,11 +1,11 @@
-/* Hero component css */
+/* Mobile First(< 768px) */
 .hero .hero-inner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
 }
 
 .avatar-wrapper {
@@ -28,7 +28,7 @@
 
 .social-links {
   display: flex;
-  gap: 16px;
+  gap: 5px;
   margin-top: 5px;
 }
 
@@ -49,19 +49,18 @@
   max-width: 580px;
   display: grid;
   gap: 2px;
-  padding-left: 50px;
 }
 
 /* tech stack, tech badge, social links */
 .tech-stack {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .tech-badge {
   padding: 6px 12px;
-  background: var(--surface-2, rgba(0,0,0,0.05));
+  background: var(--surface-2, rgba(0, 0, 0, 0.05));
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
@@ -79,13 +78,12 @@
 .hero-actions {
   margin-top: 10px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .btn {
   display: inline-block;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, .12);
   background: #f3f4f6;
@@ -107,4 +105,30 @@
 
 .btn.primary:hover {
   filter: brightness(1.05);
+}
+
+/* Tablet(768px - 1023px) */
+@media (min-width: 768px) {
+  .hero .hero-inner {
+    flex-direction: row;
+    text-align: left;
+    padding: 4rem 2rem;
+  }
+
+  .hero-content {
+    margin-left: 24px;
+  }
+
+  .hero-actions {
+    gap: 14px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+  }
 }

@@ -6,7 +6,11 @@ router.use("/projects", require("../routes/project.route"));
 
 // skill
 router.use("/skills", require("../routes/skill.route"));
-// router.use("/exp", require("./experience.route"));
-// router.use("/contact", require("./contact.route"));
+
+// exp
+router.use("/exp", require("../routes/experience.route"));
+
+// contact
+router.use("/contact", require("../routes/contact.route"));
 
 module.exports = router;
