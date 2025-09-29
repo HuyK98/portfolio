@@ -116,7 +116,7 @@ export default function Contact() {
                             required
                         />
                         <small className="hint">
-                            Tell me briefly what you need help with (min. 10 characters).
+                            Contact for me by send gmail (min. 10 characters).
                         </small>
                     </div>
 

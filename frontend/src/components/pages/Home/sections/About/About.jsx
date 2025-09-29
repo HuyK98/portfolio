@@ -68,7 +68,7 @@ export default function About() {
                                 <h4>{g.title}</h4>
                                 <ul>
                                     {g.items.map(item => (
-                                        <li key={`${g._id || g.title}-${item}`}>{item}</li>
+                                        <li className="skill-pill" key={`${g._id || g.title}-${item}`}>{item}</li>
                                     ))}
                                 </ul>
                             </article>

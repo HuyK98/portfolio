@@ -1,3 +1,8 @@
+/* mobile first */
+#about h3 {
+    text-align: center;
+}
+
 .section.about {
     height: auto;
     min-height: 0 !important;
@@ -34,59 +39,69 @@ body.dark .about .about-actions button:hover {
 .skill-groups {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
+    gap: 8px;
     margin-top: 8px;
 }
 
 .skill-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 12px;
     background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
 }
 
 .skill-card h4 {
     margin: 0 0 8px;
+    text-align: center;
 }
 
 .skill-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .skill-pill {
+    font-size: .85rem;
     padding: 4px 10px;
-    border: 1px solid #e5e7eb;
     border-radius: 999px;
-    background: #fff;
-    color: #111827;
-    font-size: 14px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+    color: #0f172a;
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+
+.skill-pill:hover {
+    background: #eef2ff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+    transform: translateY(-1px);
 }
 
 /* about-card */
 .about-intro {
     display: grid;
-    gap: 12px;
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 6px;
 }
 
 .about-card {
     display: block;
-    border: 1px solid var(--line, rgba(255, 255, 255, .12));
+    background: #fff;
+    border: 1px solid #e5e7eb;
     border-radius: 12px;
-    padding: 12px;
-    background: var(--surface-1, rgba(255,255,255,.03));
-    margin: 12px 0;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible;
+    padding: 14px 16px;
+    margin: 6px 0;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
 }
 
 .about-card h4 {
+    text-align: center;
     margin: 0 0 6px;
 }
 
@@ -100,21 +115,55 @@ body.dark .about .about-actions button:hover {
     padding-left: 18px;
 }
 
-
 /* dark theme */
-body.dark .skill-card {
-    border-color: #1f2937;
+body.dark .about-card {
     background: #0f172a;
+    border-color: #1f2937;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .35);
+}
+
+body.dark .skill-card {
+    background: #0f172a;
+    border-color: #1f2937;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .35);
 }
 
 body.dark .skill-pill {
     border-color: #1f2937;
-    background: #0a0a0a;
-    color: #f5f5f5;
+    background: #0b1220;
+    color: #e5e7eb;
 }
 
-@media (min-width: 960px){
-  .about-intro{
-    grid-template-columns: 1fr 1fr;  /* 2 cột đều nhau */
-  }
+body.dark .skill-pill:hover {
+    background: #111a2e;
+}
+
+@media (min-width: 640px) {
+    .about-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #about h3 {
+        text-align: center;
+    }
+
+    .skill-groups {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+    .about-intro {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    #about h3 {
+        text-align: left;
+    }
+
+    .skill-groups {
+        grid-template-columns: repeat(4, minmax(220px, 1fr));
+    }
 }

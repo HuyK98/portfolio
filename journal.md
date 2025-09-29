@@ -277,3 +277,16 @@
 
 ### Next plan (Day 18)
 - Tiếp tục responsive các section còn lại.
+
+## Day 18 – [29/09/2025]
+
+### Topics learned
+- Responsive.
+
+### Tasks done
+- Responsive Projects,About,Experience,Contact section.
+
+### Still confused
+
+### Next plan (Day 18)
+- Bắt đầu project mới.

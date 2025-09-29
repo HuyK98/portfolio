@@ -1,53 +1,98 @@
-.timeline {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0 0;
-    position: relative;
+/* mobile first */
+#experience h3 {
+    text-align: center;
+    margin-bottom: 6px;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #e5e7eb;
+.exp-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
 }
 
-.timeline-item {
+.ex-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
+}
+
+/* header: title, time... */
+.ex-header {
     display: flex;
-    gap: 12px;
-    position: relative;
-    padding-left: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #111827;
-    border: 2px solid #e5e7eb;
-    position: absolute;
-    left: 4px;
-    margin-top: 6px;
+.ex-title {
+    margin: 0 14px;
+    font-size: 1rem;
+    line-height: 1.35;
 }
 
-.ex-content {
-    margin-left: 20px;
+.ex-time {
+    font-size: .8rem;
+    color: #000;
+    padding: 2px 10px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    white-space: nowrap;
 }
 
 .bullets {
-    margin: 6px 0 12px;
-    padding-left: 18px;
+    margin: 6px 0 0;
+    padding-left: 12px;
+    line-height: 1.55;
 }
 
 /* dark theme */
-body.dark .timeline::before {
-    background: #1f2937;
+body.dark .ex-card {
+  background: #0f172a;
+  border-color: #1f2937;
 }
 
-body.dark .dot {
-    background: #f5f5f5;
-    border-color: #1f2937;
+body.dark .ex-time {
+    color: #f3f4f6;
+    border-color: #f3f4f6;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+    #experience h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .exp-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .ex-header {
+        grid-template-columns: 1fr auto;
+        justify-content: start;
+    }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+    #experience h3 {
+        text-align: left;
+        margin-bottom: 12px;
+    }
+
+    .exp-grid {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .ex-header {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
 }

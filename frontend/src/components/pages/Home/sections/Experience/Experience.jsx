@@ -18,23 +18,19 @@ export default function Experience() {
     return (
         <section id="experience" className="section experience">
             <h3>Experience</h3>
-            <ul className="timeline">
-                {state === "loading" && <p className="muted">Loading...</p>}
-                {state === "error" && <p className="muted">Failed to load...</p>}
-
-                {state === "ok" && exp.map(e => (
-                    <li key={e._id} className="timeline-item">
-                        <div className="dot" />
-                        <div className="ex-content">
-                            <h4>{e.company} - {e.title}</h4>
-                            <small className="muted">{e.time}</small>
-                            <ul>
-                                {e.points.map((pt, i) => <li key={`${e._id}-${i}`}>{pt}</li>)}
-                            </ul>
+            <div className="exp-grid">
+                {exp.map(e => (
+                    <article className="ex-card" key={e._id}>
+                        <div className="ex-header">
+                            <h4 className="ex-title">{e.company} - {e.title}</h4>
+                            <span className="ex-time">{e.time}</span>
                         </div>
-                    </li>
+                        <ul className="bullets">
+                            {(e.points || []).map((pt, i) => <li key={i}>{pt}</li>)}
+                        </ul>
+                    </article>
                 ))}
-            </ul>
+            </div>
         </section>
     )
 }

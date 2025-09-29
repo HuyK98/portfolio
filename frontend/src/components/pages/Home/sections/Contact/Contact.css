@@ -1,8 +1,12 @@
-/* Layout cột(dùng grid) */
+/* mobile first */
+#contact h3 {
+    text-align: center;
+}
+
 .contact-grid {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
     align-items: start;
 }
 
@@ -154,4 +158,26 @@ body.dark .btn.primary:hover {
 
 body.dark .hint {
     color: #94a3b8;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+    #contact h3 {
+        text-align: center;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+    #contact h3 {
+        text-align: left;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(320px, 1fr));
+    }
 }

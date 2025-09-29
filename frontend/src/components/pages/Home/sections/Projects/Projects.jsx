@@ -44,7 +44,7 @@ export default function Projects() {
                 ))}
               </ul>
 
-              <footer className="actions">
+              <footer className="project-actions">
                 {p.demo && (
                   <a className="btn primary" href={p.demo} target="_blank" rel="noreferrer">
                     Live
