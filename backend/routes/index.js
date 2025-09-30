@@ -13,4 +13,10 @@ router.use("/exp", require("../routes/experience.route"));
 // contact
 router.use("/contact", require("../routes/contact.route"));
 
+// auth
+router.use("/auth", require("../routes/auth.route"));
+
+// admin project
+router.use("/admin/projects", require("../routes/admin/admin.project.route"));
+
 module.exports = router;

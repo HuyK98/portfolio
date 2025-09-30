@@ -3,7 +3,7 @@ function notFound(req, res) {
 }
 
 function errorHandler(err, req, res, next) {
-    console(err);
+    console.error(err);
     res.status(500).json({ ok: false, error: err.message || "Server error" });
 }
 

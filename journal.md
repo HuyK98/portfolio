@@ -288,5 +288,23 @@
 
 ### Still confused
 
-### Next plan (Day 18)
+### Next plan (Day 19)
 - Bắt đầu project mới.
+
+## Day 19,20 – [30/09/2025]
+
+### Topics learned
+- Auth(BcryptHash,Bcrypt.compare).
+- Middleware xac thuc token va phan quyen admin.
+- JWT(Header,Payload,Signature), lay token de CRUD.
+
+### Tasks done
+- Auth role 'admin' to CRUD projects section.
+- phan biet 401&403 error.
+
+### Still confused
+- chua nam ro luong,mai thuc hanh cho cac section con lai.
+
+### Next plan (Day 21)
+- Thuc hanh CRUD cho cac section con lai.
+- Scaffold FE Admin (React Router) + Login Dev Only.
