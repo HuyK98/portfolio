@@ -16,7 +16,9 @@ router.use("/contact", require("../routes/contact.route"));
 // auth
 router.use("/auth", require("../routes/auth.route"));
 
-// admin project
+// admin
 router.use("/admin/projects", require("../routes/admin/admin.project.route"));
+router.use("/admin/skills", require("../routes/admin/admin.skill.route"));
+router.use("/admin/exp", require("../routes/admin/admin.exp.route"));
 
 module.exports = router;

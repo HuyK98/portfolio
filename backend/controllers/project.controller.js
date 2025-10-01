@@ -22,6 +22,6 @@ exports.update = async (req, res) => {
 // remove(xoa)
 exports.remove = async (req, res) => {
     const { id } = req.params;
-    const data = await Project.findByIdAndDelete(id);
+    await Project.findByIdAndDelete(id);
     res.json({ ok: true, message: "Project deleted" });
 };
