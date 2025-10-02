@@ -1,11 +1,23 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+    FaReact, FaServer, FaDatabase, FaTools,
+    FaCode, FaGithub, FaNpm, FaDocker
+} from "react-icons/fa";
 import "./About.css";
 
 export default function About() {
     const [show, setShow] = useState(true);
     const [skills, setSkills] = useState([]);
     const [state, setState] = useState("loading");
+    const skillGroupIcons = {
+        "Frontend": <FaReact />,
+        "Backend": <FaServer />,
+        "Database": <FaDatabase />,
+        "DevOps": <FaDocker />,
+        "Tools": <FaTools />,
+        "Other": <FaCode />
+    };
 
     useEffect(() => {
         fetch("/api/v1/skills")
@@ -64,14 +76,26 @@ export default function About() {
                         transition={{ duration: 0.25 }}
                     >
                         {skills.map(g => (
-                            <article key={g._id || g.title} className="skill-card">
-                                <h4>{g.title}</h4>
+                            <motion.article
+                                key={g._id || g.title}
+                                className="skill-card"
+                            >
+                                <h4>
+                                    {skillGroupIcons[g.title] || <FaCode />}
+                                    {g.title}
+                                </h4>
                                 <ul>
                                     {g.items.map(item => (
-                                        <li className="skill-pill" key={`${g._id || g.title}-${item}`}>{item}</li>
+                                        <li
+                                            className="skill-pill"
+                                            key={`${g._id || g.title}-${item}`}
+                                        >
+                                            <FaGithub size={14} />
+                                            {item}
+                                        </li>
                                     ))}
                                 </ul>
-                            </article>
+                            </motion.article>
                         ))}
                     </motion.div>
                 )}
