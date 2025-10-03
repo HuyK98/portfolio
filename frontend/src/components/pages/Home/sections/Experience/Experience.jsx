@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { api } from "../../../../../services/api";
 import "./Experience.css";
 
 export default function Experience() {
@@ -6,13 +7,19 @@ export default function Experience() {
     const [state, setState] = useState("loading");
 
     useEffect(() => {
-        fetch("/api/v1/exp")
-            .then(r => r.json())
-            .then(raw => {
-                setExp(raw.data || []);
+        const fetchExp = async () => {
+            try {
+                setState("loading");
+                const res = await api.get('/exp');
+                setExp(res.data.data || []);
                 setState("ok");
-            })
-            .catch(() => setState("error"));
+            } catch (err) {
+                console.error("Failed to fetch experience data:", err);
+                setState("error");
+            }
+        };
+
+        fetchExp();
     }, [])
 
     return (

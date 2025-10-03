@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "../../../../../services/api";
 import {
     FaReact, FaServer, FaDatabase, FaTools,
-    FaCode, FaGithub, FaNpm, FaDocker
+    FaCode, FaGithub, FaDocker
 } from "react-icons/fa";
 import "./About.css";
 
@@ -20,14 +21,20 @@ export default function About() {
     };
 
     useEffect(() => {
-        fetch("/api/v1/skills")
-            .then(r => r.json())
-            .then(raw => {
-                setSkills(raw.data || []);
+        const fetchSkills = async () => {
+            try {
+                setState("loading");
+                const res = await api.get("/skills");
+                setSkills(res.data.data || []);
                 setState("ok");
-            })
-            .catch(() => setState("error"))
-    }, [])
+            } catch (error) {
+                setState("error");
+                console.error("Failed to fetch skills:", error);
+            }
+        };
+
+        fetchSkills();
+    }, []);
 
     return (
         <section id="about" className="section about">

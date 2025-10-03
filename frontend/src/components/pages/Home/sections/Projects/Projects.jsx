@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { api } from "../../../../../services/api";
 import "./Projects.css";
 
 export default function Projects() {
@@ -6,13 +7,19 @@ export default function Projects() {
   const [state, setState] = useState("loading"); // loading | ok | error
 
   useEffect(() => {
-    fetch("/api/v1/projects")
-      .then((r) => r.json())
-      .then((raw) => {
-        setProjects((raw && raw.data) || []);
+    const fetchProjects = async () => {
+      try {
+        setState("loading");
+        const res = await api.get("/projects");
+        setProjects(res.data.data || []);
         setState("ok");
-      })
-      .catch(() => setState("error"));
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        setState("error");
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return (
@@ -20,7 +27,13 @@ export default function Projects() {
       <h3>Projects</h3>
       <p className="muted">Một vài dự án tiêu biểu gần đây.</p>
 
-      {state === "loading" && <p>Đang tải dữ liệu.</p>}
+      {state === "loading" && (
+        <div className="loading-spinner">
+          <div className="spinner"></div>
+          <p>Loading projects...</p>
+        </div>
+      )}
+      
       {state === "error" && <p>Không tải được dữ liệu.</p>}
 
       {state === "ok" && (

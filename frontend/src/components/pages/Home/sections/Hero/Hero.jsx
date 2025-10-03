@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="avatar-wrapper">
           <img src="/avatar.jpg" alt="Truong Dinh Huy" className="avatar" />
           <div className="social-links">
-            <a href="https://github.com/HuyK98" target="blank" rel="noreferrer">
+            <a href="https://github.com/HuyK98" target="_blank" rel="noreferrer">
               <FaGithub />
             </a>
             <a href="mailto:huytruongdinh61@gmail.com">
