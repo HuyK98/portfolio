@@ -27,3 +27,7 @@ dist-ssr
 backend/data/
 backend/ .env
 
+# frontend
+frontend/ .env
+frontend/ .env.*
+
