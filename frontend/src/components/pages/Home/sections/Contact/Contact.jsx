@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { api } from "../../../../../services/api";
 import "./Contact.css"
 
 export default function Contact() {
@@ -39,23 +40,18 @@ export default function Contact() {
     async function onSubmit(e) {
         e.preventDefault();
         if (!validate()) return;
+
         try {
             setSubmitting(true);
-            const res = await fetch("/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form)
-            });
-
-            const data = await res.json();
-            if (data.ok) {
+            const { data } = await api.post("/contact", form);
+            if (data?.ok) {
                 alert("Message sent! Thanks for reaching out.");
                 onClear();
             } else {
                 alert("Failed to send. Please try again.");
             }
         } catch (err) {
-            alert("Error: " + err.message);
+            alert("Error: " + (err.response?.data?.message || err.message));
         } finally {
             setSubmitting(false);
         }
