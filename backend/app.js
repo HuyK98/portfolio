@@ -6,7 +6,7 @@ const { notFound, errorHandler } = require("./middleware/error");
 const app = express();
 app.use(cors({
     origin: [
-        "https://portfolio-theta-gilt-74.vercel.app/",
+        "https://portfolio-huys-projects-5f7b3045.vercel.app",
         "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],

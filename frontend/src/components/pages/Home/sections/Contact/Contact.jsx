@@ -41,7 +41,7 @@ export default function Contact() {
         if (!validate()) return;
         try {
             setSubmitting(true);
-            const res = await fetch("/api/v1/contact", {
+            const res = await fetch("/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form)
