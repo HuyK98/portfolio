@@ -86,39 +86,115 @@
 
 /* các button */
 .hero-actions {
-  margin-top: 10px;
-  padding: 5px 24px;
   display: flex;
-  gap: 18px;
   flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
   justify-content: center;
 }
 
-.btn {
-  display: inline-block;
-  padding: 5px 24px;
-  font-weight: 500;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, .12);
-  background: #f3f4f6;
-  color: #111827;
+.download-btn, .view-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-decoration: none;
-  transition: transform .15s ease, background .2s ease, border-color .2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  background: #e5e7eb;
-}
-
-.btn.primary {
-  background: #3b82f6;
-  border-color: #3b82f6;
+.download-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-.btn.primary:hover {
-  filter: brightness(1.05);
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.view-btn {
+  background: transparent;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+}
+
+.view-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.download-btn:active,
+.view-btn:active {
+  transform: translateY(0);
+}
+
+/* Dark Mode */
+body.dark .view-btn {
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+body.dark .view-btn:hover {
+  background: rgba(96, 165, 250, 0.1);
+}
+body.dark .download-btn {
+  color: black;
+  border-color: #60a5fa;
+}
+body.dark .download-btn:hover {
+  background: #60a5fa;
+}
+
+/* Animations */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animated-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-aurora {
+  animation-name: aurora;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora {
+    animation: none;
+  }
 }
 
 /* Tablet(768px - 1023px) */

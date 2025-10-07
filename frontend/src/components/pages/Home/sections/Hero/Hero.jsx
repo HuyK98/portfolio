@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaDownload, FaEye } from "react-icons/fa";
+import { TypingText } from "../../../../../ui/TypingText";
+import { AuroraText } from "../../../../../ui/AuroraText";
 import "./Hero.css";
 
 export default function Hero() {
@@ -25,7 +27,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Hi! I&apos;m
+            <TypingText
+              text="Hi! I&apos;m"
+              speed={80}
+              showCursor={false}
+            />
           </motion.p>
 
           <motion.h2
@@ -33,7 +39,13 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Truong Dinh Huy
+            <AuroraText
+              colors={["#38BDF8", "#3B82F6", "#EC4899"]}
+              speed={1}
+              className="font-bold"
+            >
+              Truong Dinh Huy
+            </AuroraText>
           </motion.h2>
 
           <motion.p
@@ -42,7 +54,12 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày.
+            <TypingText
+              text="Fresher web developer focusing on React &amp; Node. Portfolio này được build từng bước mỗi ngày."
+              speed={50}
+              showCursor={true}
+              cursurClassName="text-primary"
+            />
           </motion.p>
 
           <motion.div
@@ -58,11 +75,14 @@ export default function Hero() {
           </motion.div>
 
           <div className="hero-actions">
-            <a className="btn primary" href="/resume.pdf" download>
-              Download Resume
+            <a href="/resume.pdf" download className="download-btn">
+              <FaDownload className="btn-icon" />
+              <span>Download Resume</span>
             </a>
-            <a className="btn" href="#projects">
-              View Projects
+
+            <a href="#projects" className="view-btn">
+              <FaEye className="btn-icon" />
+              <span>View Projects</span>
             </a>
           </div>
         </div>
