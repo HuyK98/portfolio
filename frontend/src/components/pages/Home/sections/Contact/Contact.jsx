@@ -44,14 +44,20 @@ export default function Contact() {
         try {
             setSubmitting(true);
             const { data } = await api.post("/contact", form);
+
             if (data?.ok) {
-                alert("Message sent! Thanks for reaching out.");
+                if (!data.emailSent) {
+                    alert("Message saved but email delivery failed. We'll contact you soon!");
+                } else {
+                    alert("Message sent! Thanks for reaching out.");
+                }
                 onClear();
             } else {
                 alert("Failed to send. Please try again.");
             }
         } catch (err) {
-            alert("Error: " + (err.response?.data?.message || err.message));
+            console.error("submit error:", err);
+            alert("Error: " + (err.response?.data?.error || err.message));
         } finally {
             setSubmitting(false);
         }

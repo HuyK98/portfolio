@@ -17,20 +17,33 @@ exports.create = async (req, res) => {
         }
 
         // tao ban ghi db
-        const doc = await ContactMessage.create({ 
-            name: name.trim(), 
-            email: email.trim(), 
+        const doc = await ContactMessage.create({
+            name: name.trim(),
+            email: email.trim(),
             message: message.trim(),
             ip: req.ip //store ip for rate limiting
         });
 
         // send email
+        console.log("Attempting to send contact email...");
         const emailResult = await sendContactEmail({ name, email, message });
 
+        if (!emailResult.success) {
+            console.error("Email failed:", emailResult.error);
+            // Still return success since message was saved
+            return res.json({
+                ok: true,
+                id: doc._id,
+                emailSent: false,
+                message: "Message saved but email delivery failed. We'll contact you soon!"
+            });
+        }
+
         //return res
-        res.json({ ok: true, id: doc._id, emailSent: emailResult.success });
+        res.json({ ok: true, id: doc._id, emailSent: true });
 
     } catch (err) {
+        console.error("Contact error:", err);
         next(err);
     }
 }

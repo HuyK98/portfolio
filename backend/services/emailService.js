@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 
-// Create reusable transporter object using SMTP transport
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
@@ -15,6 +14,7 @@ const transporter = nodemailer.createTransport({
     socketTimeout: 10000
 });
 
+// Verify connection
 transporter.verify(function(error, success) {
     if (error) {
         console.error('SMTP connection error:', error);
@@ -23,36 +23,30 @@ transporter.verify(function(error, success) {
     }
 });
 
-async function sendContactEmail(contactData) {
-    const { name, email, message } = contactData;
-
-    console.log(`Attempting to send email from ${name} (${email})`);
-
-    const mailOptions = {
-        from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_USER,
-        replyTo: email, 
-        subject: `Portfolio Contact: ${name}`,
-        html: `
-        <h3>New Contact Message</h3>
-        <p><strong>From:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Sent from your portfolio contact form</small></p>
-        `,
-        text: `New Contact Message\n\nFrom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    };
-
+exports.sendContactEmail = async ({ name, email, message }) => {
     try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully:', info.messageId);
-        return { success: true, messageId: info.messageId };
+        console.log(`Attempting to send email from ${name} (${email})`);
+        
+        const info = await transporter.sendMail({
+            from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+            to: process.env.EMAIL_USER,
+            replyTo: email,
+            subject: `Portfolio Contact from ${name}`,
+            text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+            html: `
+                <h3>New Contact Message</h3>
+                <p><strong>From:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message.replace(/\n/g, '<br>')}</p>
+            `
+        });
+
+        console.log("Email sent successfully:", info.messageId);
+        return { success: true };
+
     } catch (error) {
         console.error("Failed to send email:", error);
         return { success: false, error: error.message };
     }
-}
-
-module.exports = { sendContactEmail };
+};
