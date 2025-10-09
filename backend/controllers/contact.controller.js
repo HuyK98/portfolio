@@ -1,7 +1,7 @@
 const ContactMessage = require("../models/contact");
 const { sendContactEmail } = require("../services/emailService");
 
-exports.create = async (req, res) => {
+exports.create = async (req, res, next) => {
     try {
         const { name, email, message } = req.body;
 
@@ -40,7 +40,7 @@ exports.create = async (req, res) => {
         }
 
         //return res
-        res.json({ ok: true, id: doc._id, emailSent: true });
+        res.json({ ok: true, id: doc._id, emailSent: true, message: "Message sent successfully" });
 
     } catch (err) {
         console.error("Contact error:", err);
