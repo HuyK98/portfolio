@@ -42,7 +42,7 @@ export default function Contact() {
 
     async function onSubmit(e) {
         e.preventDefault();
-        if (!formData.name || !formData.email || !formData.message) {
+        if (!form.name || !form.email || !form.message) {
             showAlert('Vui lòng điền đầy đủ thông tin!', 'warning');
             return;
         }
