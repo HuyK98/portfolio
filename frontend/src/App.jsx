@@ -16,11 +16,11 @@ export default function App() {
           <Header />
 
           <main className="container content">
-            <Routes>
-              <AlertProvider>
+            <AlertProvider>
+              <Routes>
                 <Route path="/" element={<Home />} />
-              </AlertProvider>
-            </Routes>
+              </Routes>
+            </AlertProvider>
           </main>
 
           <Footer />
