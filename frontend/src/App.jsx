@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
+import { AlertProvider } from "./context/AlertContext";
 import "./App.css";
 import "./styles/base.css";
 
@@ -16,7 +17,9 @@ export default function App() {
 
           <main className="container content">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <AlertProvider>
+                <Route path="/" element={<Home />} />
+              </AlertProvider>
             </Routes>
           </main>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from "../../../../../services/api";
+import { useAlert } from '../../../../../context/AlertContext';
 import "./Contact.css"
 
 export default function Contact() {
@@ -8,6 +9,8 @@ export default function Contact() {
         return (saved) ? JSON.parse(saved) : { name: "", email: "", message: "" }
     });
     const [submitting, setSubmitting] = useState(false); //mac dinh nut send la false
+
+    const { showAlert } = useAlert();
 
     //lưu form mỗi khi có thay đổi
     useEffect(() => {
@@ -39,7 +42,10 @@ export default function Contact() {
 
     async function onSubmit(e) {
         e.preventDefault();
-        if (!validate()) return;
+        if (!formData.name || !formData.email || !formData.message) {
+            showAlert('Vui lòng điền đầy đủ thông tin!', 'warning');
+            return;
+        }
 
         try {
             setSubmitting(true);
@@ -49,15 +55,14 @@ export default function Contact() {
                 if (!data.emailSent) {
                     alert("Message saved but email delivery failed. We'll contact you soon!");
                 } else {
-                    alert("Message sent! Thanks for reaching out.");
+                    showAlert('Gui tin nhan thanh cong! Cam on ban da lien he voi toi.', 'success');
                 }
                 onClear();
             } else {
-                alert("Failed to send. Please try again.");
+                showAlert(data.error || "Failed to send message.", 'error');
             }
         } catch (err) {
-            console.error("submit error:", err);
-            alert("Error: " + (err.response?.data?.error || err.message));
+            showAlert('Khong the gui tin nhan. Vui long thu lai sau!', 'error');
         } finally {
             setSubmitting(false);
         }
